@@ -1,3 +1,30 @@
+if you want to touch it locally - run `make init`
+
+if you want to do it step by step, please, run next commands:
+- `composer install`
+- `cp .env.example .env`
+- `touch database/database.sqlite`
+- `php artisan migrate`
+- `php artisan key:generate`
+- `./vendor/bin/sail up`
+- `npm install`
+- `npm run dev`
+- for run tests `php vendor/bin/codecept run`
+
+CRUD for employees is here: `localhost/employees`
+API for finding employees: `localhost/api/employee/findByPosition` and `localhost/api/employee/findBySuperior`
+
+
+
+
+
+
+__________________
+__________________
+__________________
+__________________
+__________________
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
