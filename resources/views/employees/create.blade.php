@@ -32,7 +32,7 @@
                         <label for="start_date">Start Date:*</label>
                         <input type="text" class="form-control" name="start_date"/>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Stock</button>
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
                 </form>
             </div>
         </div>

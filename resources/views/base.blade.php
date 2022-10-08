@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Employees</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<div class="container">
-    @yield('main')
-</div>
-<script src="{{ asset('js/app.js') }}" type="text/js"></script>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        @yield('main')
+    </div>
+@endsection
+

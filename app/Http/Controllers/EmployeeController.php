@@ -40,10 +40,10 @@ class EmployeeController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name'=>'required',
-            'position'=>'required',
-            'superior_id'=>'required',
-            'start_date'=>'required',
+            'name' => 'required',
+            'position' => 'required',
+            'superior_id' => 'required',
+            'start_date' => 'required',
         ]);
         // Getting values from the blade template form
         $employee = new Employee([
@@ -56,21 +56,10 @@ class EmployeeController extends Controller
         return redirect('/employees')->with('success', 'Employee saved.');
     }
 
-//    /**
-//     * Display the specified resource.
-//     *
-//     * @param  int  $id
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function show($id)
-//    {
-//        //
-//    }
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return View
      */
     public function edit(int $id): View
@@ -83,19 +72,19 @@ class EmployeeController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
+     * @param int $id
      * @return RedirectResponse
      */
     public function update(Request $request, int $id): RedirectResponse
     {
         $request->validate([
-            'name'=>'required',
-            'position'=>'required',
-            'superior_id'=>'required',
-            'start_date'=>'required',
+            'name' => 'required',
+            'position' => 'required',
+            'superior_id' => 'required',
+            'start_date' => 'required',
         ]);
         $employee = Employee::find($id);
-        $employee->name =  $request->get('name');
+        $employee->name = $request->get('name');
         $employee->position = $request->get('position');
         $employee->superiorId = $request->get('superior_id');
         $employee->startDate = $request->get('start_date');
@@ -110,7 +99,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return RedirectResponse
      */
     public function destroy(int $id): RedirectResponse
