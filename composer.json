@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -14,6 +17,11 @@
         "mehradsadeghi/laravel-crud-generator": "^0.5.5"
     },
     "require-dev": {
+        "codeception/codeception": "^5.0",
+        "codeception/module-asserts": "^3.0",
+        "codeception/module-laravel": "^3.0",
+        "codeception/module-rest": "^3.3",
+        "codeception/module-webdriver": "^3.1",
         "fakerphp/faker": "^1.9.1",
         "laracademy/generators": "^3.6",
         "laravel/pint": "^1.0",
@@ -21,7 +29,8 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "spatie/laravel-ignition": "^1.0",
+        "codeception/module-phpbrowser": "*"
     },
     "autoload": {
         "psr-4": {

@@ -42,7 +42,11 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => 'required',
             'position' => 'required',
-            'superior_id' => 'required',
+            'superior_id' => function ($attribute, $value, $fail) {
+                if (isset($value) && Employee::where('id', $value)->count() === 0) {
+                    $fail('The '.$attribute.' with that ID not exists.');
+                }
+            },
             'start_date' => 'required',
         ]);
         // Getting values from the blade template form
@@ -64,7 +68,7 @@ class EmployeeController extends Controller
      */
     public function edit(int $id): View
     {
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
         return view('employees.edit', compact('employee'));
     }
 
@@ -80,7 +84,14 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => 'required',
             'position' => 'required',
-            'superior_id' => 'required',
+            'superior_id' => function ($attribute, $value, $fail) use ($id) {
+                if (isset($value) && Employee::where('id', $value)->count() === 0) {
+                    $fail('The '.$attribute.' with that ID not exists.');
+                }
+                if ($value == $id) {
+                    $fail('Employee not allowed to be superior for themself');
+                }
+            },
             'start_date' => 'required',
             'end_date' => function ($attribute, $value, $fail) use ($request) {
                 if (isset($value) && $value < $request->get('start_date')) {
@@ -88,7 +99,7 @@ class EmployeeController extends Controller
                 }
             },
         ]);
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
         $employee->name = $request->get('name');
         $employee->position = $request->get('position');
         $employee->superiorId = $request->get('superior_id');
