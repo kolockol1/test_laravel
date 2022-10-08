@@ -1,0 +1,12 @@
+actor: ApiTester
+suite_namespace: Tests\Api
+modules:
+  enabled:
+    - REST:
+        url: /api/employee/
+        depends: Laravel
+    - Asserts
+#  config:
+#    Db:
+#      dump: tests/Support/Data/dump.sql
+#      populate: true

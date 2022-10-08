@@ -18,7 +18,7 @@ class EmployeeController extends Controller
     public function findBySuperior(Request $request): JsonResponse
     {
         $request->validate(['id' => 'required|numeric']);
-        $employees = Employee::where('superiorId', $request->get('id'))->get();
+        $employees = Employee::where('superior_id', $request->get('id'))->get();
 
         return response()->json([
             "employees" => $employees,

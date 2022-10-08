@@ -20,6 +20,7 @@
         "codeception/codeception": "^5.0",
         "codeception/module-asserts": "^3.0",
         "codeception/module-laravel": "^3.0",
+        "codeception/module-phpbrowser": "*",
         "codeception/module-rest": "^3.3",
         "codeception/module-webdriver": "^3.1",
         "fakerphp/faker": "^1.9.1",
@@ -29,8 +30,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0",
-        "codeception/module-phpbrowser": "*"
+        "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
         "psr-4": {
