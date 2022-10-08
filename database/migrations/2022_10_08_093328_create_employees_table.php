@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
-            $table->unsignedBigInteger('superiorId');
-            $table->timestamp('startDate');
-            $table->timestamp('endDate')->nullable();
+            $table->unsignedBigInteger('superior_id');
+            $table->timestamp('start_date');
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
         });
     }
