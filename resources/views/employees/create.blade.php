@@ -12,7 +12,7 @@
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
-                    </div><br />
+                    </div><br/>
                 @endif
                 <form method="post" action="{{ route('employees.store') }}">
                     @csrf
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="start_date">Start Date:*</label>
-                        <input type="text" class="form-control" name="start_date"/>
+                        <input type="date" name="start_date" id="date" class="form-control" style="width: 100%; display: inline;" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Employee</button>
                 </form>

@@ -82,18 +82,21 @@ class EmployeeController extends Controller
             'position' => 'required',
             'superior_id' => 'required',
             'start_date' => 'required',
+            'end_date' => function ($attribute, $value, $fail) use ($request) {
+                if (isset($value) && $value < $request->get('start_date')) {
+                    $fail('The '.$attribute.' have to be greater, than start_date.');
+                }
+            },
         ]);
         $employee = Employee::find($id);
         $employee->name = $request->get('name');
         $employee->position = $request->get('position');
         $employee->superiorId = $request->get('superior_id');
         $employee->startDate = $request->get('start_date');
-        if (!empty($request->get('end_date'))) {
-            $employee->endDate = $request->get('end_date');
-        }
+        $employee->endDate = $request->get('end_date');
         $employee->save();
 
-        return redirect('/employee')->with('success', 'Employee updated.');
+        return redirect('/employees')->with('success', 'Employee updated.');
     }
 
     /**

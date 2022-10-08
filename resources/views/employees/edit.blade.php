@@ -33,7 +33,11 @@
                     </div>
                     <div class="form-group">
                         <label for="start_date">Start Date:*</label>
-                        <input type="text" class="form-control" name="start_date" value="{{ $employee->startDate }}"/>
+                        <input type="date" name="start_date" id="date" class="form-control" style="width: 100%; display: inline;" required value="{{ (new DateTime($employee->startDate))->format('Y-m-d') }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">End Date:</label>
+                        <input type="date" name="end_date" id="date" class="form-control" style="width: 100%; display: inline;" @if(!empty($employee->endDate)) value="{{ (new DateTime($employee->endDate))->format('Y-m-d') }}" @endif>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
